@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vận Tải Minh Dũng - Dịch Vụ Vận Tải Container Chuyên Nghiệp Toàn Quốc</title>
+  <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+    .maersk-cyan {
+      color: #42B0D5;
+    }
+    .bg-maersk-cyan {
+      background-color: #42B0D5;
+    }
+    .border-maersk-cyan {
+      border-color: #42B0D5;
+    }
+    .hero-bg {
+      background: linear-gradient(90deg, rgba(11, 25, 44, 0.92) 0%, rgba(15, 30, 50, 0.75) 45%, rgba(0, 0, 0, 0.35) 100%),
+                  url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    }
+    .card-shadow {
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    }
+
+    /* ĐỊNH DẠNG MÀU CHỮ TRẮNG & NỀN TƯƠNG PHẢN CAO CHO TẤT CẢ Ô NHẬP LIỆU */
+    input, select, textarea {
+      color: #FFFFFF !important;
+      background-color: #0F2238 !important;
+      border: 1px solid #334155 !important;
+    }
+    input::placeholder, textarea::placeholder {
+      color: #94A3B8 !important;
+      opacity: 1;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: #42B0D5 !important;
+      outline: none !important;
+      box-shadow: 0 0 0 2px rgba(66, 176, 213, 0.35) !important;
+    }
+    select option {
+      background-color: #0F2238 !important;
+      color: #FFFFFF !important;
+    }
+  </style>
+</head>
+<body class="bg-[#F8FAFC] text-slate-800 antialiased selection:bg-[#42B0D5] selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BAR (Maersk Middle East style alert) -->
+  <div class="bg-[#0B192C] text-slate-300 text-xs py-2 px-4 border-b border-slate-800 hidden md:block">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <span class="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-semibold bg-[#42B0D5]/20 text-[#42B0D5]">THÔNG BÁO</span>
+        <span>Cam kết điều động xe container trong vòng 30 - 60 phút tại các cụm cảng & KCN trọng điểm.</span>
+      </div>
+      <div class="flex items-center space-x-6 text-slate-400">
+        <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-[#42B0D5]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg> Hotline 24/7: <strong>0988.xxx.xxx</strong></span>
+        <span>Hỗ trợ: info@minhdung.com.vn</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION BAR (Maersk Dark Aesthetic) -->
+  <header class="bg-[#0B192C]/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <!-- Logo (Maersk Star Emblem Style) -->
+        <a href="javascript:void(0)" onclick="refreshToTop(event)" class="flex items-center gap-3 cursor-pointer select-none group" title="Về đầu trang & Tải lại">
+          <div class="w-10 h-10 bg-[#42B0D5] rounded flex items-center justify-center shadow-lg shadow-[#42B0D5]/20 group-hover:scale-105 transition-transform">
+            <!-- Stylized 7-point star/compass icon -->
+            <svg class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2L13.8 8.6L20.4 7L16.2 12L20.4 17L13.8 15.4L12 22L10.2 15.4L3.6 17L7.8 12L3.6 7L10.2 8.6L12 2Z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="text-xl font-extrabold tracking-wider text-white uppercase block leading-none group-hover:text-[#42B0D5] transition-colors">MINH DŨNG</span>
+            <span class="text-[11px] tracking-widest text-[#42B0D5] uppercase font-semibold">Container Logistics</span>
+          </div>
+        </a>
+
+        <!-- Menu Links -->
+        <nav class="hidden lg:flex items-center space-x-7 text-sm font-medium text-slate-200">
+          <a href="#dich-vu" class="hover:text-[#42B0D5] transition-colors">Dịch Vụ Vận Tải</a>
+          <a href="#loi-ich" class="hover:text-[#42B0D5] transition-colors">Lợi Thế Cạnh Tranh</a>
+          <a href="#quy-trinh" class="hover:text-[#42B0D5] transition-colors">Quy Trình</a>
+          <a href="#bao-gia" class="hover:text-[#42B0D5] transition-colors">Nhận Báo Giá</a>
+          <a href="#faq" class="hover:text-[#42B0D5] transition-colors">Hỏi Đáp</a>
+        </nav>
+
+        <!-- Header Actions -->
+        <div class="flex items-center space-x-3">
+          <a href="tel:0988xxxxxx" class="hidden sm:inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white border border-slate-600 rounded hover:border-[#42B0D5] hover:text-[#42B0D5] transition-colors">
+            Gọi Tư Vấn
+          </a>
+          <a href="#bao-gia" class="inline-flex items-center justify-center px-4 py-2 text-xs font-bold uppercase tracking-wider text-[#0B192C] bg-white rounded hover:bg-[#42B0D5] hover:text-white transition-all shadow-sm">
+            Nhận Báo Giá
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (Maersk Style: Scenic Highway Truck with Left Gradient Overlay) -->
+  <section class="hero-bg relative min-h-[580px] flex items-center pt-16 pb-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+      <div class="max-w-2xl text-white">
+        <!-- Tagline -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#42B0D5]/20 text-[#42B0D5] border border-[#42B0D5]/30 text-xs font-semibold uppercase tracking-wider mb-5">
+          <span class="w-2 h-2 rounded-full bg-[#42B0D5] animate-pulse"></span>
+          Đội xe container chuyên nghiệp toàn quốc
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white leading-[1.18] mb-6">
+          Giao Hàng Đúng Giờ – Tiết Kiệm Chi Phí – Bảo Toàn Hàng Hóa 100%
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-base sm:text-lg text-slate-300 font-normal leading-relaxed mb-8">
+          <strong>Công ty TNHH Dịch Vụ Vận Tải Minh Dũng</strong> cung cấp giải pháp kéo container 20ft, 40ft, 45ft, Cont lạnh và Flat Rack chuyên nghiệp. Kết nối thông suốt cảng biển và các khu công nghiệp trọng điểm.
+        </p>
+
+        <!-- CTA Action Buttons (Nhấn vào sẽ tự động cuộn xuống phần Báo giá cước) -->
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#bao-gia" class="px-8 py-4 bg-[#42B0D5] hover:bg-[#329abf] text-[#0B192C] hover:text-white font-extrabold text-sm rounded shadow-2xl transition-all duration-200 flex items-center gap-2 group">
+            <span>Nhận Báo Giá Ngay</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+          <a href="#dich-vu" class="px-7 py-4 bg-black/40 backdrop-blur-sm border border-white/50 text-white font-semibold text-sm rounded hover:bg-white/10 hover:border-white transition-colors">
+            Khám phá dịch vụ
+          </a>
+        </div>
+
+        <!-- 3 Feature Bullets -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-10 pt-8 border-t border-white/15 text-xs text-slate-300">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#42B0D5] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>100% Đúng giờ hạ bãi / tàu</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#42B0D5] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Báo giá trọn gói sau 5 phút</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-[#42B0D5] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+            <span>Bảo hiểm đền bù 100% giá trị</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 MAERSK-STYLE ACTION CARDS (Tự nhiên kết nối ngay sau Hero) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white p-6 rounded-lg border border-slate-200/90 hover:border-[#42B0D5] transition-all duration-200 flex items-start gap-4 group">
+        <div class="w-12 h-12 rounded-full bg-slate-100 group-hover:bg-[#42B0D5]/10 text-slate-700 group-hover:text-[#42B0D5] flex items-center justify-center flex-shrink-0 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900 mb-1 group-hover:text-[#42B0D5] transition-colors">Quy trình bắt đầu nhanh</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-3">Chỉ cần gửi thông tin tuyến đường, chuyên viên Minh Dũng báo giá và điều xe ngay trong 30-60 phút.</p>
+          <a href="#quy-trinh" class="text-xs font-bold text-[#0B192C] group-hover:text-[#42B0D5] inline-flex items-center gap-1">
+            Xem quy trình 4 bước <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white p-6 rounded-lg border border-slate-200/90 hover:border-[#42B0D5] transition-all duration-200 flex items-start gap-4 group">
+        <div class="w-12 h-12 rounded-full bg-slate-100 group-hover:bg-[#42B0D5]/10 text-slate-700 group-hover:text-[#42B0D5] flex items-center justify-center flex-shrink-0 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900 mb-1 group-hover:text-[#42B0D5] transition-colors">Sẵn sàng đặt xe ngay?</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-3">Đội xe hơn 50 đầu kéo đời mới, chủ động 100% phương tiện kể cả mùa cao điểm lễ, Tết.</p>
+          <a href="#bao-gia" class="text-xs font-bold text-[#0B192C] group-hover:text-[#42B0D5] inline-flex items-center gap-1">
+            Đặt xe ngay hôm nay <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white p-6 rounded-lg border border-slate-200/90 hover:border-[#42B0D5] transition-all duration-200 flex items-start gap-4 group">
+        <div class="w-12 h-12 rounded-full bg-slate-100 group-hover:bg-[#42B0D5]/10 text-slate-700 group-hover:text-[#42B0D5] flex items-center justify-center flex-shrink-0 transition-colors">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+        </div>
+        <div>
+          <h3 class="text-base font-bold text-slate-900 mb-1 group-hover:text-[#42B0D5] transition-colors">Cam kết an toàn tuyệt đối</h3>
+          <p class="text-xs text-slate-500 leading-relaxed mb-3">Hàng hóa nguyên seal, có bảo hiểm vận chuyển rõ ràng, bồi thường 100% nếu có rủi ro.</p>
+          <a href="#loi-ich" class="text-xs font-bold text-[#0B192C] group-hover:text-[#42B0D5] inline-flex items-center gap-1">
+            Chính sách bảo hiểm <span class="group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CYAN ACCENT BAND (Maersk Signature Accent Line) -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
+    <div class="h-1 bg-gradient-to-r from-[#42B0D5] via-[#0B192C] to-slate-200 rounded-full"></div>
+  </div>
+
+  <!-- SECTION: NỖI ĐAU CỦA KHÁCH HÀNG (Pain Points) -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs font-bold text-[#42B0D5] uppercase tracking-widest block mb-2">Thách Thức Trong Logistics</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+        Có Phải Doanh Nghiệp Bạn Đang Mệt Mỏi Vì Những Rủi Ro Này?
+      </h2>
+      <p class="text-sm text-slate-500 mt-3">Một sự cố nhỏ trong khâu vận chuyển container cũng có thể làm gián đoạn toàn bộ chuỗi cung ứng và gây tổn thất hàng trăm triệu đồng.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Pain 1 -->
+      <div class="bg-white p-6 rounded-lg border-t-4 border-rose-500 shadow-sm border-x border-b border-slate-200">
+        <div class="w-10 h-10 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center font-bold text-lg mb-4">01</div>
+        <h4 class="font-bold text-slate-900 text-base mb-2">Trễ giờ hạ bãi & rớt tàu</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">Nhà xe đến trễ giờ đóng hàng làm trễ chuyến tàu biển, gánh chịu phí lưu cont/bãi (DEM/DET) tiền triệu mỗi ngày.</p>
+      </div>
+
+      <!-- Pain 2 -->
+      <div class="bg-white p-6 rounded-lg border-t-4 border-amber-500 shadow-sm border-x border-b border-slate-200">
+        <div class="w-10 h-10 rounded-full bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-lg mb-4">02</div>
+        <h4 class="font-bold text-slate-900 text-base mb-2">Hàng móp méo, đổ vỡ</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">Tài xế lái ẩu, chằng buộc sơ sài khiến hàng hóa hư hỏng trong thùng cont, đối tác trả hàng, ảnh hưởng uy tín thương hiệu.</p>
+      </div>
+
+      <!-- Pain 3 -->
+      <div class="bg-white p-6 rounded-lg border-t-4 border-sky-500 shadow-sm border-x border-b border-slate-200">
+        <div class="w-10 h-10 rounded-full bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-lg mb-4">03</div>
+        <h4 class="font-bold text-slate-900 text-base mb-2">Chi phí mập mờ, phát sinh</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">Báo giá ban đầu một nẻo, lúc thanh toán lại cộng dồn thêm vô số phụ phí bến bãi, chờ đợi không báo trước.</p>
+      </div>
+
+      <!-- Pain 4 -->
+      <div class="bg-white p-6 rounded-lg border-t-4 border-slate-700 shadow-sm border-x border-b border-slate-200">
+        <div class="w-10 h-10 rounded-full bg-slate-100 text-slate-800 flex items-center justify-center font-bold text-lg mb-4">04</div>
+        <h4 class="font-bold text-slate-900 text-base mb-2">Bị bỏ rơi lúc cao điểm</h4>
+        <p class="text-xs text-slate-600 leading-relaxed">Mùa lễ tết hoặc cao điểm nông thủy sản thì nhà xe báo "cháy xe", bỏ mặc đơn hàng xuất khẩu của bạn bị kẹt cứng.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: GIẢI PHÁP TỪ MINH DŨNG (Solutions) -->
+  <section id="dich-vu" class="bg-[#0B192C] text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+        <div>
+          <span class="text-xs font-bold text-[#42B0D5] uppercase tracking-widest block mb-2">Danh mục dịch vụ</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Giải Pháp Vận Tải Toàn Diện Từ Vận Tải Minh Dũng</h2>
+        </div>
+        <p class="text-sm text-slate-400 max-w-md mt-4 md:mt-0">Đa dạng chủng loại phương tiện, đáp ứng mọi quy chuẩn khắt khe về kỹ thuật và tiến độ của các tập đoàn xuất nhập khẩu.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Service 1 -->
+        <div class="bg-[#112239] rounded-lg p-6 border border-slate-800 hover:border-[#42B0D5] transition-all group">
+          <div class="w-12 h-12 rounded bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center mb-5 group-hover:bg-[#42B0D5] group-hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-white">Kéo Cont Cảng ⇄ Kho / KCN</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">Chuyên tuyến Cát Lái, Cái Mép, Hải Phòng, Đà Nẵng... Xử lý nhanh thủ tục hạ bãi, lấy cont và giải phóng xe trong ngày.</p>
+          <span class="text-xs text-[#42B0D5] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Xem tuyến chi tiết →</span>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="bg-[#112239] rounded-lg p-6 border border-slate-800 hover:border-[#42B0D5] transition-all group">
+          <div class="w-12 h-12 rounded bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center mb-5 group-hover:bg-[#42B0D5] group-hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-white">Vận Tải Container Lạnh (Reefer)</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">Máy phát điện chạy liên tục, kiểm soát nhiệt độ nghiêm ngặt cho thủy hải sản, nông sản xuất khẩu, dược phẩm và thực phẩm tươi.</p>
+          <span class="text-xs text-[#42B0D5] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Xem quy chuẩn lạnh →</span>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="bg-[#112239] rounded-lg p-6 border border-slate-800 hover:border-[#42B0D5] transition-all group">
+          <div class="w-12 h-12 rounded bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center mb-5 group-hover:bg-[#42B0D5] group-hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-white">Tuyến Bắc - Nam Hai Chiều</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">Tối ưu hóa hàng hóa 2 chiều Bắc - Trung - Nam, giúp doanh nghiệp tiết kiệm 10% - 15% cước phí so với thuê lẻ từng chuyến.</p>
+          <span class="text-xs text-[#42B0D5] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Nhận giá 2 chiều →</span>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="bg-[#112239] rounded-lg p-6 border border-slate-800 hover:border-[#42B0D5] transition-all group">
+          <div class="w-12 h-12 rounded bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center mb-5 group-hover:bg-[#42B0D5] group-hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2 1.5 3 3.5 3h9c2 0 3.5-1 3.5-3V7M4 7l8-4 8 4M4 7l8 4 8-4"></path></svg>
+          </div>
+          <h3 class="text-lg font-bold mb-2 text-white">Hàng Quá Khổ, Quá Tải (OOG)</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">Đội moóc lùn, moóc sàn, Flat Rack chuyên dụng vận chuyển máy móc công trình, kết cấu thép và thiết bị công nghiệp siêu trọng.</p>
+          <span class="text-xs text-[#42B0D5] font-semibold flex items-center gap-1 group-hover:translate-x-1 transition-transform">Tư vấn xe moóc →</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: 5 LỢI THẾ CẠNH TRANH (Why Choose Minh Dũng) -->
+  <section id="loi-ich" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-[#42B0D5] uppercase tracking-widest block mb-2">Giá Trị Cốt Lõi</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          5 Lý Do Hàng Trăm Doanh Nghiệp Chọn Vận Tải Minh Dũng
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Benefit 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+          <div class="w-12 h-12 rounded-lg bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center font-bold text-xl mb-6">
+            1
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Luôn Sẵn Xe 24/7 – Kể Cả Cao Điểm</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Minh Dũng sở hữu đội ngũ hơn 50 xe đầu kéo và rơ-moóc chuyên dụng riêng, không qua môi giới, đảm bảo nguồn xe dồi dào, không lo thiếu xe mùa xuất khẩu.
+          </p>
+        </div>
+
+        <!-- Benefit 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+          <div class="w-12 h-12 rounded-lg bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center font-bold text-xl mb-6">
+            2
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Tiết Kiệm 10% - 15% Chi Phí Vận Tải</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Tối ưu hóa hành trình xe chạy 2 chiều, báo giá trọn gói cạnh tranh nhất thị trường. Tuyệt đối không phát sinh chi phí ẩn ngoài hợp đồng.
+          </p>
+        </div>
+
+        <!-- Benefit 3 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+          <div class="w-12 h-12 rounded-lg bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center font-bold text-xl mb-6">
+            3
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Báo Cáo Tiến Độ & Minh Bạch Lộ Trình</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Phương tiện được kiểm soát chặt chẽ theo quy chuẩn Bộ GTVT. Bộ phận điều vận chủ động cập nhật thời gian bốc hàng, giờ hạ cảng nhanh chóng qua Zalo/Email.
+          </p>
+        </div>
+
+        <!-- Benefit 4 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
+          <div class="w-12 h-12 rounded-lg bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center font-bold text-xl mb-6">
+            4
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Tài Xế Dày Dặn Kinh Nghiệm Bến Cảng</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            100% tài xế có đầy đủ bằng cấp FC, thông thuộc quy trình thủ tục tại các bến cảng, kiểm tra kẹp chì cẩn thận, thái độ phục vụ văn minh, tận tâm.
+          </p>
+        </div>
+
+        <!-- Benefit 5 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 md:col-span-2">
+          <div class="w-12 h-12 rounded-lg bg-[#42B0D5]/10 text-[#42B0D5] flex items-center justify-center font-bold text-xl mb-6">
+            5
+          </div>
+          <h3 class="text-lg font-bold text-slate-900 mb-2">Hợp Đồng Chuẩn Mực – Công Nợ Linh Hoạt 15 - 30 Ngày</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Xuất hóa đơn VAT điện tử nhanh chóng, hợp đồng pháp lý đầy đủ bảo hiểm hàng hóa bồi thường 100%. Áp dụng chính sách thanh toán công nợ theo tháng cho các doanh nghiệp ký kết định kỳ.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: QUY TRÌNH 4 BƯỚC (Simple Workflow) -->
+  <section id="quy-trinh" class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-[#42B0D5] uppercase tracking-widest block mb-2">Tối Ưu Thời Gian</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Quy Trình Hợp Tác 4 Bước Tinh Gọn</h2>
+        <p class="text-sm text-slate-500 mt-2">Nhanh chóng, chuyên nghiệp và giảm thiểu tối đa thủ tục rườm rà cho khách hàng.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
+        <!-- Step 1 -->
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-[#0B192C] text-[#42B0D5] text-xl font-extrabold flex items-center justify-center mx-auto mb-4 ring-8 ring-slate-100">
+            01
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Tiếp Nhận Nhu Cầu</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Nhận thông tin loại hàng, địa điểm lấy/trả cont và yêu cầu thời gian từ quý khách.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-[#0B192C] text-[#42B0D5] text-xl font-extrabold flex items-center justify-center mx-auto mb-4 ring-8 ring-slate-100">
+            02
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Báo Giá & Hợp Đồng</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Lên phương án vận chuyển tối ưu và gửi báo giá trọn gói cạnh tranh chỉ sau 5-15 phút.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-[#0B192C] text-[#42B0D5] text-xl font-extrabold flex items-center justify-center mx-auto mb-4 ring-8 ring-slate-100">
+            03
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Điều Xe & Vận Chuyển</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Xe đến đúng giờ cam kết, kiểm tra kẹp chì seal, đảm bảo hành trình an toàn, đúng giờ.</p>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-[#0B192C] text-[#42B0D5] text-xl font-extrabold flex items-center justify-center mx-auto mb-4 ring-8 ring-slate-100">
+            04
+          </div>
+          <h3 class="text-base font-bold text-slate-900 mb-2">Bàn Giao & Hóa Đơn</h3>
+          <p class="text-xs text-slate-500 leading-relaxed">Bàn giao hàng hóa nguyên vẹn, ký biên bản giao nhận và xuất hóa đơn VAT đầy đủ theo quy định.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: FORM NHẬN BÁO GIÁ (Main Conversion Area - Có bổ sung trường Email) -->
+  <section id="bao-gia" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+    <!-- Decorative background glow -->
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-[#42B0D5]/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="bg-[#0B192C] text-white rounded-2xl p-8 sm:p-12 shadow-2xl border border-slate-700">
+        <div class="text-center max-w-xl mx-auto mb-8">
+          <span class="text-xs font-bold text-[#42B0D5] uppercase tracking-widest block mb-2">Ưu Đãi Hôm Nay</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Nhận Báo Giá Cước Vận Tải Minh Dũng</h2>
+          <p class="text-xs sm:text-sm text-slate-300 mt-2">Điền thông tin bên dưới, bộ phận điều vận Minh Dũng sẽ gọi lại tư vấn và gửi bảng cước tốt nhất chỉ sau 5 phút.</p>
+        </div>
+
+        <form onsubmit="handleFullForm(event)" class="space-y-4">
+          <!-- Row 1: Họ tên + Số điện thoại -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Họ và tên / Đại diện DN *</label>
+              <input type="text" placeholder="Vd: Nguyễn Văn A" required class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Số điện thoại / Zalo nhận báo giá *</label>
+              <input type="tel" placeholder="Vd: 0912 345 678" required class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]">
+            </div>
+          </div>
+
+          <!-- Row 2: Email khách hàng + Loại container -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Email nhận bảng báo giá *</label>
+              <input type="email" placeholder="Vd: contact@doanhnghiep.vn" required class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Loại Container Yêu Cầu</label>
+              <select class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]">
+                <option value="20ft">Container 20ft Thường (Dry)</option>
+                <option value="40ft">Container 40ft Thường (Dry)</option>
+                <option value="45ft">Container 45ft Cao (High Cube)</option>
+                <option value="reefer">Container Lạnh (Reefer)</option>
+                <option value="flatrack">Cont Quá Khổ (Flat Rack / Moóc lùn)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Row 3: Điểm nhận hàng + Điểm giao hàng -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Điểm nhận hàng (Cảng / Kho) *</label>
+              <input type="text" placeholder="Vd: Cảng Cát Lái, Cảng Hải Phòng..." required class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Điểm giao hàng (Nhà máy / KCN) *</label>
+              <input type="text" placeholder="Vd: KCN VSIP, KCN Yên Phong..." required class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]">
+            </div>
+          </div>
+
+          <!-- Row 4: Tần suất vận chuyển -->
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Tần suất vận chuyển</label>
+            <select class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]">
+              <option value="single">Cần xe gấp chuyến đơn lẻ</option>
+              <option value="monthly">Hợp tác định kỳ theo tháng</option>
+              <option value="yearly">Ký hợp đồng dài hạn hàng năm</option>
+            </select>
+          </div>
+
+          <!-- Row 5: Ghi chú thêm -->
+          <div>
+            <label class="block text-xs font-bold uppercase text-slate-300 mb-1.5">Ghi chú thêm (loại hàng hóa, yêu cầu đặc biệt...)</label>
+            <textarea rows="2" placeholder="Vd: Hàng nông sản cần giữ lạnh -18°C, yêu cầu hạ bãi trước 17h..." class="w-full text-sm px-4 py-3 rounded text-white bg-[#0F2238] border border-slate-600 focus:outline-none focus:ring-2 focus:ring-[#42B0D5]"></textarea>
+          </div>
+
+          <div class="pt-2">
+            <button type="submit" class="w-full py-4 bg-[#42B0D5] hover:bg-[#329abf] text-[#0B192C] font-extrabold text-sm sm:text-base rounded uppercase tracking-wider transition-all duration-200 shadow-xl flex items-center justify-center gap-2 group">
+              <span>GỬI YÊU CẦU - NHẬN BÁO GIÁ TỐT NHẤT NGAY</span>
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </button>
+          </div>
+
+          <div class="text-center text-xs text-slate-400 mt-2">
+            🔒 Vận Tải Minh Dũng cam kết bảo mật 100% thông tin doanh nghiệp của bạn.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: ĐÁNH GIÁ TỪ ĐỐI TÁC (Testimonials) -->
+  <section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold text-[#42B0D5] uppercase tracking-widest block mb-2">Ý Kiến Đối Tác</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Khách Hàng Nói Gì Về Minh Dũng?</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Review 1 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 relative">
+          <div class="flex items-center gap-1 text-amber-400 mb-4">
+            ★★★★★
+          </div>
+          <p class="text-sm text-slate-700 italic leading-relaxed mb-6">
+            "Hợp tác với Vận Tải Minh Dũng hơn 3 năm nay, điều tôi hài lòng nhất là sự chuẩn xác về thời gian. Dù cao điểm lễ Tết nhưng Minh Dũng chưa bao giờ để hàng xuất khẩu của chúng tôi bị rớt tàu hay trễ giờ đóng cont."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#0B192C] text-white flex items-center justify-center font-bold text-sm">NM</div>
+            <div>
+              <div class="text-sm font-bold text-slate-900">Anh Nguyễn Hoàng Nam</div>
+              <div class="text-xs text-slate-500">Trưởng phòng Xuất Nhập Khẩu – KCN VSIP</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200 relative">
+          <div class="flex items-center gap-1 text-amber-400 mb-4">
+            ★★★★★
+          </div>
+          <p class="text-sm text-slate-700 italic leading-relaxed mb-6">
+            "Vận chuyển cont lạnh đòi hỏi rất gắt gao về kiểm soát nhiệt độ. Đội xe của Minh Dũng kiểm tra máy lạnh kỹ càng và theo dõi nhiệt độ sát sao suốt chặng đường. Báo giá rất minh bạch, không phụ phí lắt nhắt."
+          </p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-[#42B0D5] text-white flex items-center justify-center font-bold text-sm">MP</div>
+            <div>
+              <div class="text-sm font-bold text-slate-900">Chị Trần Mai Phương</div>
+              <div class="text-xs text-slate-500">Giám đốc Logistics – Công ty Thủy sản Miền Tây</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: FAQ (Accordion) -->
+  <section id="faq" class="py-20 bg-white border-t border-slate-200">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold text-[#42B0D5] uppercase tracking-widest block mb-2">Giải Đáp Thắc Mắc</span>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">Câu Hỏi Thường Gặp (FAQ)</h2>
+      </div>
+
+      <div class="space-y-4">
+        <!-- FAQ 1 -->
+        <div class="border border-slate-200 rounded-lg p-5">
+          <h3 class="font-bold text-slate-900 text-sm sm:text-base flex justify-between items-center cursor-pointer" onclick="toggleFaq(1)">
+            <span>Vận Tải Minh Dũng có nhận điều xe gấp trong vòng 1-2 tiếng không?</span>
+            <span id="faq-icon-1" class="text-slate-400 font-bold">+</span>
+          </h3>
+          <p id="faq-ans-1" class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed hidden">
+            Có. Nhờ mạng lưới bãi xe phân bổ chiến lược gần các cụm cảng (Cát Lái, Cái Mép, Hải Phòng...) và các tuyến vành đai lớn, Minh Dũng có thể điều động xe trong vòng 1 đến 2 giờ kể từ khi tiếp nhận yêu cầu chốt đơn.
+          </p>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-slate-200 rounded-lg p-5">
+          <h3 class="font-bold text-slate-900 text-sm sm:text-base flex justify-between items-center cursor-pointer" onclick="toggleFaq(2)">
+            <span>Chính sách đền bù thiệt hại hàng hóa của Minh Dũng như thế nào?</span>
+            <span id="faq-icon-2" class="text-slate-400 font-bold">+</span>
+          </h3>
+          <p id="faq-ans-2" class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed hidden">
+            Minh Dũng cam kết bồi thường 100% giá trị thiệt hại hàng hóa nếu lỗi phát sinh do quá trình vận chuyển hoặc do tài xế của chúng tôi theo đúng thỏa thuận hợp đồng vận tải pháp lý.
+          </p>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="border border-slate-200 rounded-lg p-5">
+          <h3 class="font-bold text-slate-900 text-sm sm:text-base flex justify-between items-center cursor-pointer" onclick="toggleFaq(3)">
+            <span>Công ty có chính sách công nợ tháng cho doanh nghiệp không?</span>
+            <span id="faq-icon-3" class="text-slate-400 font-bold">+</span>
+          </h3>
+          <p id="faq-ans-3" class="text-xs sm:text-sm text-slate-600 mt-3 leading-relaxed hidden">
+            Có. Chúng tôi áp dụng chính sách công nợ linh hoạt từ 15 đến 30 ngày cho các doanh nghiệp ký hợp đồng vận tải thường xuyên, kèm theo đối soát chi tiết và xuất hóa đơn VAT điện tử hàng tháng.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER (Maersk Inspired Corporate Footer) -->
+  <footer class="bg-[#0B192C] text-slate-400 text-xs pt-16 pb-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <!-- Col 1: Brand Info -->
+        <div class="md:col-span-2">
+          <a href="javascript:void(0)" onclick="refreshToTop(event)" class="flex items-center gap-3 mb-4 cursor-pointer group" title="Về đầu trang & Tải lại">
+            <div class="w-8 h-8 bg-[#42B0D5] rounded flex items-center justify-center group-hover:scale-105 transition-transform">
+              <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L13.8 8.6L20.4 7L16.2 12L20.4 17L13.8 15.4L12 22L10.2 15.4L3.6 17L7.8 12L3.6 7L10.2 8.6L12 2Z"/></svg>
+            </div>
+            <span class="text-base font-extrabold text-white tracking-wider uppercase group-hover:text-[#42B0D5] transition-colors">CÔNG TY TNHH DỊCH VỤ VẬN TẢI MINH DŨNG</span>
+          </a>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-md mb-4">
+            Đơn vị vận tải container đường bộ và kết nối cảng hàng đầu. Đồng hành cùng các doanh nghiệp xuất nhập khẩu với cam kết An toàn – Đúng hẹn – Chi phí tối ưu.
+          </p>
+          <div class="space-y-1.5 text-slate-300">
+            <div><strong>Mã số thuế:</strong> 0123456789</div>
+            <div><strong>Trụ sở:</strong> [Địa chỉ văn phòng công ty của bạn]</div>
+            <div><strong>Bãi xe container:</strong> [Địa chỉ bãi đỗ xe container chính]</div>
+          </div>
+        </div>
+
+        <!-- Col 2: Dịch Vụ -->
+        <div>
+          <h4 class="text-white font-bold uppercase text-xs tracking-wider mb-4">Dịch Vụ Cốt Lõi</h4>
+          <ul class="space-y-2 text-slate-400">
+            <li><a href="#dich-vu" class="hover:text-[#42B0D5] transition-colors">Vận tải container 20ft & 40ft</a></li>
+            <li><a href="#dich-vu" class="hover:text-[#42B0D5] transition-colors">Vận tải container Lạnh (Reefer)</a></li>
+            <li><a href="#dich-vu" class="hover:text-[#42B0D5] transition-colors">Vận chuyển cont Cảng ⇄ Kho</a></li>
+            <li><a href="#dich-vu" class="hover:text-[#42B0D5] transition-colors">Hàng siêu trường, siêu trọng OOG</a></li>
+            <li><a href="#dich-vu" class="hover:text-[#42B0D5] transition-colors">Dịch vụ ghép hàng cont 2 chiều</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Liên Hệ 24/7 -->
+        <div>
+          <h4 class="text-white font-bold uppercase text-xs tracking-wider mb-4">Tổng Đài Điều Xe 24/7</h4>
+          <div class="space-y-2 text-slate-400">
+            <div class="text-white text-base font-extrabold text-[#42B0D5]">0988.xxx.xxx</div>
+            <div>Zalo điều vận: 0988.xxx.xxx</div>
+            <div>Email: baogia@vantaiminhdung.vn</div>
+            <div class="pt-2">
+              <span class="inline-block px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded text-[11px] font-semibold">● Trực điều xe 24/24</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center text-slate-500 gap-4">
+        <div>© 2026 CÔNG TY TNHH DỊCH VỤ VẬN TẢI MINH DŨNG. Tất cả quyền được bảo lưu.</div>
+        <div class="flex space-x-6 text-xs">
+          <a href="#" class="hover:text-slate-300">Chính sách bảo mật</a>
+          <a href="#" class="hover:text-slate-300">Điều khoản dịch vụ</a>
+          <a href="#" class="hover:text-slate-300">Cam kết bồi thường</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BONG BÓNG LIÊN HỆ NỔI (FACEBOOK MESSENGER, ZALO & GỌI ĐIỆN) -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col space-y-3 items-end">
+    <!-- Facebook Messenger Bubble -->
+    <a href="https://m.me" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 pl-3 pr-2 py-2 bg-[#0084FF] hover:bg-[#0073e6] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-105" title="Chat qua Facebook Messenger">
+      <span class="text-xs font-bold hidden group-hover:inline-block transition-all pr-1">Chat Messenger</span>
+      <div class="w-10 h-10 flex items-center justify-center">
+        <!-- Messenger SVG Icon -->
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.43 3.16 7.15V22l3.05-1.68c1.17.33 2.44.51 3.79.51 5.64 0 10-4.13 10-9.7S17.64 2 12 2zm1.09 13.06l-2.73-2.91-5.32 2.91 5.86-6.22 2.79 2.91 5.26-2.91-5.86 6.22z"/>
+        </svg>
+      </div>
+    </a>
+
+    <!-- Zalo Bubble -->
+    <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-2 pl-3 pr-2 py-2 bg-[#0068FF] hover:bg-[#0057d6] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-105" title="Chat qua Zalo">
+      <span class="text-xs font-bold hidden group-hover:inline-block transition-all pr-1">Chat Zalo</span>
+      <div class="w-10 h-10 flex items-center justify-center font-extrabold text-sm tracking-tighter bg-white text-[#0068FF] rounded-full">
+        Zalo
+      </div>
+    </a>
+
+    <!-- Phone Call Button (Static) -->
+    <a href="tel:0988xxxxxx" class="group flex items-center gap-2 pl-3 pr-2 py-2 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-105" title="Gọi Hotline 24/7">
+      <span class="text-xs font-bold hidden group-hover:inline-block transition-all pr-1">Hotline 24/7</span>
+      <div class="w-10 h-10 flex items-center justify-center">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56a.977.977 0 00-1.01.24l-1.57 1.97c-2.83-1.35-5.43-3.9-6.63-6.49l1.97-1.57c.28-.28.36-.67.25-1.02A11.36 11.36 0 018.92 4c0-.55-.45-1-1-1H4.5c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.5c0-.55-.45-1-.99-1.12z"/>
+        </svg>
+      </div>
+    </a>
+  </div>
+
+  <!-- SIMPLE JAVASCRIPT FOR ACCORDION, REFRESH & FORMS -->
+  <script>
+    function refreshToTop(e) {
+      if (e) e.preventDefault();
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+      const cleanUrl = window.location.href.split('#')[0];
+      window.location.replace(cleanUrl);
+      window.location.reload();
+    }
+
+    function toggleFaq(id) {
+      const ans = document.getElementById('faq-ans-' + id);
+      const icon = document.getElementById('faq-icon-' + id);
+      if (ans.classList.contains('hidden')) {
+        ans.classList.remove('hidden');
+        icon.innerText = '−';
+      } else {
+        ans.classList.add('hidden');
+        icon.innerText = '+';
+      }
+    }
+
+    function handleFullForm(e) {
+      e.preventDefault();
+      alert('Yêu cầu báo giá của bạn đã được gửi thành công đến hệ thống Vận Tải Minh Dũng! Bộ phận điều xe sẽ liên hệ lại qua Số điện thoại & Email của bạn trong ít phút.');
+    }
+  </script>
+</body>
+</html>
